@@ -4,7 +4,6 @@ import {
   StackActions,
 } from '@react-navigation/native';
 import {HOME} from './screenName';
-import * as React from 'react';
 export const navigationRef = createNavigationContainerRef();
 
 // export const navigationRef = createNavigationContainerRef();

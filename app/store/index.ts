@@ -5,10 +5,14 @@ import {
   Reducer,
 } from '@reduxjs/toolkit';
 import {setupListeners} from '@reduxjs/toolkit/query';
-
+// Store
 import counterSlice from './counter.slice';
 
+// Services
+import {moviesApi} from '../services/movies.service';
+
 const combinedReducer = combineReducers({
+  [moviesApi.reducerPath]: moviesApi.reducer,
   counter: counterSlice,
 });
 
@@ -22,7 +26,11 @@ const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware(),
+
+  // Adding the api middleware enables caching, invalidation, polling,
+  // and other useful features of `rtk-query`.
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(moviesApi.middleware),
 });
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

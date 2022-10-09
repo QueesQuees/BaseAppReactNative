@@ -3,11 +3,11 @@ import {
   FetchBaseQueryError,
 } from '@reduxjs/toolkit/dist/query/fetchBaseQuery';
 import {BaseQueryFn, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import Config from 'react-native-config';
+// import Config from 'react-native-config';
 import {RootState} from '../store';
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: Config.API_URL,
+  baseUrl: 'https://localhost:8080/api/',
   // Set headers
   prepareHeaders: (headers: Headers, {getState}) => {
     // Mark requests as XMLHttpRequest

@@ -5,15 +5,14 @@ import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
 import {store} from './store';
-import {Text, View} from 'react-native';
+import Navigation from './navigation';
+import {HOME} from './navigation/screenName';
 
 const BootScreen: React.FC = () => {
   return (
     <>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <View>
-          <Text>Hello</Text>
-        </View>
+        <Navigation initialRouteName={HOME} initialRouteId={'Home'} />
       </SafeAreaProvider>
     </>
   );

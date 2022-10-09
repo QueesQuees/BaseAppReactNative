@@ -7,7 +7,6 @@ import styles from './styles';
 // import {DETAIL} from '../../navigation/screenName';
 
 const Detail: React.FC = ({route, navigation}) => {
-  console.log(route?.params?.item);
   let data = route?.params?.item;
   return (
     <>
